@@ -4,3 +4,38 @@
   align-items: center;
   justify-content: center; 
 }
+
+.sine {
+  fill: none;
+  stroke: red;
+  stroke-width: 18;
+  stroke-linecap: round;
+  stroke-dasharray: 206 206;
+  stroke-dashoffset: 206;
+  clip-path: url(#logo);
+  animation-duration: 2s;
+  animation-name: wave;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier( 0.36, 0.45, 0.63, 0.53);
+}
+
+@keyframes wave {
+  from {
+    margin-left: -1000px;
+  }
+
+  to {
+    margin-left: 0px;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0, 0%, 0);
+  }
+
+  50% {
+    transform: translate3d(0, 10%, 0);
+  }
+}

@@ -54,12 +54,12 @@ var createGraphPath = function(line, offSet) {
   line.setPathData(data)
 };
 
-var animateGraph = function (arguments) {
+var animateGraph = function () {
   offSet += (increment / frameRate);
   createGraphPath(line, offSet)
-  setTimeout(function() {
-    requestAnimationFrame(animateGraph)
-  }, 1000 / frameRate);
+  // setTimeout(function() {
+  //   requestAnimationFrame(animateGraph)
+  // }, 1000 / frameRate);
 }
 
 requestAnimationFrame(animateGraph);

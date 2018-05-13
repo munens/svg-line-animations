@@ -38,7 +38,7 @@ var createGraphPath = function(line, offSet) {
   while (x < 1000) {
     var point = {
       x: x,
-      y: 150 - pathFunction(x, offSet)
+      y: (Math.sin(increment - 0.07 * x) + 150) - pathFunction(x, offSet)
     };
     data.push({
       'type': 'L',
@@ -63,79 +63,3 @@ var animateGraph = function (arguments) {
 }
 
 requestAnimationFrame(animateGraph);
-
-
-
-/*var app = angular.module('waveApp', []);
-
-app.controller('waveCtrl', function($scope) {
-	
-	var path = $('.sine-wave');
-	var reference = $('.sine-wave-reference');
-
-	$scope.x = 0;
-	$scope.offset = 0;
-	
-	$scope.pathFunction = function (x) {
-		var result = 
-			
-			// Function to determine curve
-			// 0.2*(Math.sin(Math.sqrt(x)-$scope.offset))*x;
-			(Math.sin(Math.sqrt(x*$scope.frequency)-$scope.offset))*x*(0.1 * $scope.amplitude);
-		
-		return result;
-	};
-	
-	$scope.createGraph = function (wave) {
-		$scope.x = 0;
-		var data = [
-			{
-				'type': 'M',
-				'values': [0,150]
-			}
-		];
-		while ($scope.x < 300) {
-			point = {
-				x: $scope.x,
-				y: 150 - $scope.pathFunction($scope.x) 
-			};
-			data.push({
-				'type': 'L',
-				'values': [
-					point.x,
-					point.y
-				]
-			});
-			$scope.x += 1;
-		}
-		wave[0].setPathData(data);
-	};
-	
-	$scope.createGraph(reference);
-	
-	$scope.updateGraph = function () {
-		$scope.createGraph(reference);
-	};
-	
-	$scope.play = true;
-
-	$scope.animate = function () {
-		if ($scope.play === true) {
-			$scope.offset += ($scope.increment / $scope.framerate);
-			$scope.createGraph(path);
-			setTimeout(function () {
-				requestAnimationFrame($scope.animate);	
-			},(1000 / $scope.framerate));
-		}
-	}
-	requestAnimationFrame($scope.animate);
-
-});
-*/
-
-
-
-
-
-
-
